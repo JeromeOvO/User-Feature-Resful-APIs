@@ -1,0 +1,20 @@
+Design decisions:
+1. used local storage to make it easier to setting up database.
+2. apllied express framework so that I can handle http request and design restful apis.
+3. implemeted the hash function of bcryptjs to encrypt passwords, and also
+    add salt value to make sure the same passwords of different users will have different
+    encrypted passwords which make sure the security.
+4. applied async and await to make sure the program getting the data it needs.
+5. used try and catch function to handle errors.
+
+Challenges I have encountered during development process:
+1. when I debug the program, I need to reboot the sever.js over and over again 
+    each time when I have changed some codes, which needs me type in command to run program
+    every time.
+    -----solution: I add a dependency: nodemon and add scripts "devStart": "nodemon server.js",
+    so that when I change some codes, I just need to save the code file then the server will reboot
+    by it self.
+2. Sometime when I shut down the program and want to reboot it manually, it will crash
+    becasue some zombie thread still ocuppy the port.
+    ------solution: I use command "lsof -i portnumber", to find out the pid of the zombie
+    thread, and type in "kill pid", so that I can shut down the zombie thread.
